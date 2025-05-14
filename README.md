@@ -29,7 +29,7 @@ Make sure you have [git](https://git-scm.com/book/en/v2/Getting-Started-Installi
 Open IRIS terminal in your IRIS with installed IPM. Run the command:
 
 ```objectscript
-USER>zpm "install iris-python-template"
+USER>zpm "install jrpjr-test"
 ```
 
 ## Installation docker

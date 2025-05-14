@@ -1,12 +1,13 @@
 ARG IMAGE=intersystemsdc/irishealth-community
 ARG IMAGE=intersystemsdc/iris-community:preview
 ARG IMAGE=intersystemsdc/iris-community
+ARG IMAGE=intersystemsdc/irishealth-ml-community:latest
 FROM $IMAGE
 
 WORKDIR /home/irisowner/dev
 
 ARG TESTS=0
-ARG MODULE="iris-python-template"
+ARG MODULE="jrpjr-test"
 ARG NAMESPACE="USER"
 
 

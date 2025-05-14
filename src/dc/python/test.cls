@@ -30,7 +30,7 @@ ClassMethod TitanicMeanAge() As %Status
 {
     Set sc = $$$OK
     set tt=##class(%SYS.Python).Import("sample")
-    set path=##class(%File).NormalizeDirectory("lib", ##class(%File).GetDirectory($zu(86)))_"data/iris-python-template/titanic.csv"
+    set path=##class(%File).NormalizeDirectory("lib", ##class(%File).GetDirectory($zu(86)))_"data/jrpjr-test/titanic.csv"
     write "mean age="_tt.meanage(path)
     Return sc
 }
