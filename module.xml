@@ -3,7 +3,7 @@
   <Document name="jrpjr-test.ZPM">
     <Module>
       <Name>jrpjr-test</Name>
-      <Version>3.0.9</Version>
+      <Version>3.0.10</Version>
       <Description>The simplest template to run embedded python</Description>
       <Packaging>module</Packaging>
       <SourcesRoot>src</SourcesRoot>
