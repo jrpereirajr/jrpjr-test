@@ -3,8 +3,7 @@ name: Cloud Run Deploy
 on:
   push:
     branches:
-    - master
-    - main
+    - deploy
   workflow_dispatch:
 
 jobs:
