@@ -2,6 +2,7 @@ ARG IMAGE=intersystemsdc/irishealth-community
 ARG IMAGE=intersystemsdc/iris-community:preview
 ARG IMAGE=intersystemsdc/iris-community
 ARG IMAGE=intersystemsdc/irishealth-ml-community:latest
+ARG IMAGE=intersystemsdc/irishealth-community:latest
 FROM $IMAGE
 
 WORKDIR /home/irisowner/dev
@@ -9,6 +10,7 @@ WORKDIR /home/irisowner/dev
 ARG TESTS=0
 ARG MODULE="jrpjr-test"
 ARG NAMESPACE="USER"
+ARG OPENAI_API_KEY=""
 
 
 # create Python env

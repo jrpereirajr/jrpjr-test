@@ -7,27 +7,12 @@
       <Description>The simplest template to run embedded python</Description>
       <Packaging>module</Packaging>
       <SourcesRoot>src</SourcesRoot>
-      <Dependencies>
-        <ModuleReference>
-          <Name>webterminal</Name>
-          <Version>4.*</Version>
-        </ModuleReference>
-      </Dependencies>
-      <Dependencies>
-        <ModuleReference>
-          <Name>iterm</Name>
-          <Version>0.*</Version>
-        </ModuleReference>
-      </Dependencies>
-      <Dependencies>
-        <ModuleReference>
-          <Name>fhir-server</Name>
-          <Version>1.*</Version>
-        </ModuleReference>
-      </Dependencies>
-      <Resource Name="dc.python.PKG"/>
-      <FileCopy Name="python/" Target="${libdir}python/"/>
-      <FileCopy Name="data/" Target="${libdir}data/${packagename}/"/>
+      <Resource Name="dc.FHIRInsight.PKG"/>
+      <CSPApplication CookiePath="/FHIRInsight/" DefaultTimeout="900" DispatchClass="dc.FHIRInsight.api.disp" PasswordAuthEnabled="1" Recurse="1" ServeFiles="1" ServeFilesTimeout="3600" UnauthenticatedEnabled="0" Url="/FHIRInsight" UseSessionCookie="2"/>
+      <Invokes>
+          <Invoke Class="dc.FHIRInsight.Utils" Method="StartProduction">
+          </Invoke>
+      </Invokes>
     </Module>
   </Document>
 </Export>
