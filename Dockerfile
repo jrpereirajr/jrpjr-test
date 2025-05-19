@@ -21,6 +21,10 @@ ENV PATH "/usr/irissys/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sb
 # ENV LIBRARY_PATH=${ISC_PACKAGE_INSTALLDIR}/bin:${LIBRARY_PATH}
 ## Start IRIS
 
+# https://stackoverflow.com/a/77364602/345422
+RUN python -m ensurepip --upgrade
+RUN python -m pip install --upgrade setuptools
+
 RUN --mount=type=bind,src=.,dst=. \
     pip3 install -r requirements.txt && \
     iris start IRIS && \
