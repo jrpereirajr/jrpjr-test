@@ -1,31 +1,27 @@
-import glob
-import os
-import iris
-import pandas as pd
-from sqlalchemy import create_engine
-from iris import ipm
+    zn "%SYS"
 
-# switch namespace to the %SYS namespace
-iris.system.Process.SetNamespace("%SYS")
+    // Unexpire passwords and set up passwordless mode to simplify dev use.
+    // ** Comment out these two line for Production use **
+    do ##class(Security.Users).UnExpireUserPasswords("*")
+    zpm "install passwordless"
 
-# set credentials to not expire
-iris.cls('Security.Users').UnExpireUserPasswords("*")
+    // Enable callin for Embedded Python
+    do ##class(Security.Services).Get("%Service_CallIn",.prop)
+    set prop("Enabled")=1
+    set prop("AutheEnabled")=48
+    do ##class(Security.Services).Modify("%Service_CallIn",.prop)
 
-# switch namespace to IRISAPP built by merge.cpf
-iris.system.Process.SetNamespace("IRISAPP")
+    // create IRISAPP namespace
+    do $SYSTEM.OBJ.Load("/home/irisowner/dev/App.Installer.cls", "ck")
+    set sc = ##class(App.Installer).setup()
 
-# load ipm package listed in module.xml
-#iris.cls('%ZPM.PackageManager').Shell("load /home/irisowner/dev -v")
-assert ipm('load /home/irisowner/dev -v')
+    zn "IRISAPP"
 
-# load demo data
-engine = create_engine('iris+emb:///')
-# list all csv files in the demo data folder
-for files in glob.glob('/home/irisowner/dev/data/*.csv'):
-    # get the file name without the extension
-    table_name = os.path.splitext(os.path.basename(files))[0]
-    # load the csv file into a pandas dataframe
-    df = pd.read_csv(files)
-    # write the dataframe to IRIS
-    df.to_sql(table_name, engine, if_exists='replace', index=False, schema='dc_demo')
+    // Create /_vscode web app to support intersystems-community.testingmanager VS Code extension
+    zpm "install vscode-per-namespace-settings"
 
+    // Configure %UnitTest in IRISAPP to suit the VS Code extension
+    set ^UnitTestRoot="/usr/irissys/.vscode/IRISAPP/UnitTestRoot"
+
+    zpm "load /home/irisowner/dev/ -v":1:1
+    halt
