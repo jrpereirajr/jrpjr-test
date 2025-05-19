@@ -22,7 +22,7 @@ ENV PATH "/usr/irissys/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sb
 ## Start IRIS
 
 RUN --mount=type=bind,src=.,dst=. \
-    pip3 install -r requirements.txt && \
+    # pip3 install -r requirements.stxt && \
     iris start IRIS && \
     iris merge IRIS merge.cpf && \
     irispython iris_script.py && \
