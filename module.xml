@@ -6,6 +6,12 @@
       <Version>3.0.11</Version>
       <Description>The simplest template to run embedded python</Description>
       <Packaging>module</Packaging>
+      <Dependencies>
+        <ModuleReference>
+          <Name>iterm</Name>
+          <Version>0.*</Version>
+        </ModuleReference>
+      </Dependencies>
       <SourcesRoot>src</SourcesRoot>
       <Resource Name="dc.python.PKG"/>
       <FileCopy Name="python/" Target="${libdir}python/"/>
