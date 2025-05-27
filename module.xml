@@ -17,6 +17,7 @@
       <FileCopy Name="python/" Target="${libdir}python/"/>
       <FileCopy Name="data/" Target="${libdir}data/${packagename}/"/>
       <Invoke Class="dc.Install" Method="ImportSQL">
+      </Invoke>
     </Module>
   </Document>
 </Export>
