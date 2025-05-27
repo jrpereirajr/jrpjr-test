@@ -12,6 +12,12 @@
           <Version>0.*</Version>
         </ModuleReference>
       </Dependencies>
+      <Dependencies>
+        <ModuleReference>
+          <Name>FHIRInsight</Name>
+          <Version>1.*</Version>
+        </ModuleReference>
+      </Dependencies>
       <SourcesRoot>src</SourcesRoot>
       <Resource Name="dc.PKG"/>
       <FileCopy Name="python/" Target="${libdir}python/"/>
