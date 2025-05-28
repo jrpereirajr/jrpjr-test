@@ -14,8 +14,8 @@
       </Dependencies>
       <Dependencies>
         <ModuleReference>
-          <Name>FHIRInsight</Name>
-          <Version>1.0.0</Version>
+          <Name>fhirinsight</Name>
+          <Version>0.0.21</Version>
         </ModuleReference>
       </Dependencies>
       <SourcesRoot>src</SourcesRoot>
