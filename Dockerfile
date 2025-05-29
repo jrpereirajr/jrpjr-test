@@ -22,9 +22,16 @@ ENV PATH "/usr/irissys/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sb
 COPY data/*.csv /tmp
 COPY sql/*.sql /tmp
 
+# RUN --mount=type=bind,src=.,dst=. \
+#     pip3 install -r requirements.txt && \
+#     iris start IRIS && \
+#     iris merge IRIS merge.cpf && \
+#     irispython iris_script.py && \
+#     iris stop IRIS quietly
+
 RUN --mount=type=bind,src=.,dst=. \
     pip3 install -r requirements.txt && \
     iris start IRIS && \
     iris merge IRIS merge.cpf && \
-    irispython iris_script.py && \
+	iris session IRIS < iris.script && \
     iris stop IRIS quietly
