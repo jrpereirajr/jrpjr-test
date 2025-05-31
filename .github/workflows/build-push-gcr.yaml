@@ -1,18 +1,18 @@
-name: Cloud Run Deploy
+# name: Cloud Run Deploy
 
-on:
-  push:
-    branches:
-    - deploy
-  workflow_dispatch:
+# on:
+#   push:
+#     branches:
+#     - deploy
+#   workflow_dispatch:
 
-jobs:
-  deploy:
-    uses: intersystems-community/demo-deployment/.github/workflows/deployment.yml@master
-    with:
-      # Replace the name: parameter below to have your application deployed at
-      # https://jrpjr-test.demo.community.intersystems.com/
-      name: jrpjr-test
-    secrets:
-      # Do not forget to add Secret in GitHub Repoository Settings with name SERVICE_ACCOUNT_KEY
-      SERVICE_ACCOUNT_KEY: ${{ secrets.SERVICE_ACCOUNT_KEY }}
+# jobs:
+#   deploy:
+#     uses: intersystems-community/demo-deployment/.github/workflows/deployment.yml@master
+#     with:
+#       # Replace the name: parameter below to have your application deployed at
+#       # https://jrpjr-test.demo.community.intersystems.com/
+#       name: jrpjr-test
+#     secrets:
+#       # Do not forget to add Secret in GitHub Repoository Settings with name SERVICE_ACCOUNT_KEY
+#       SERVICE_ACCOUNT_KEY: ${{ secrets.SERVICE_ACCOUNT_KEY }}

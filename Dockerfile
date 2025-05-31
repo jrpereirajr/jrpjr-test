@@ -9,6 +9,7 @@ WORKDIR /home/irisowner/dev
 ARG TESTS=0
 ARG MODULE="jrpjr-test"
 ARG NAMESPACE="USER"
+ARG OPENAI_API_KEY=""
 
 
 # create Python env
@@ -17,6 +18,7 @@ ENV IRISNAMESPACE "IRISAPP"
 ENV PYTHON_PATH=/usr/irissys/bin/
 ENV PATH "/usr/irissys/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/irisowner/bin:/home/irisowner/.local/bin"
 # ENV LIBRARY_PATH=${ISC_PACKAGE_INSTALLDIR}/bin:${LIBRARY_PATH}
+ENV OPENAI_API_KEY=$OPENAI_API_KEY
 ## Start IRIS
 
 COPY data/*.csv /tmp
