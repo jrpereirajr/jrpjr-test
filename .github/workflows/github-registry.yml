@@ -6,7 +6,7 @@ on:
   # e.g.: ghcr.io/intersystems-community/intersystems-iris-dev-template:latest
   push:
     branches:
-      - deploy
+      - master
 
 jobs:
   docker_publish:
@@ -21,6 +21,5 @@ jobs:
         with:
           image_name: ${{ github.repository }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          build_arg: "OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY1 }}"
           # optionally push to the Docker Hub (docker.io)
           # docker_io_token: ${{ secrets.DOCKER_IO_ACCESS_TOKEN }}  # see https://hub.docker.com/settings/security
