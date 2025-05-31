@@ -8,7 +8,7 @@ on:
 
 jobs:
   deploy:
-    uses: ./deployment.yml
+    uses: ./.github/workflows/deployment.yml
     with:
       # Replace the name: parameter below to have your application deployed at
       # https://jrpjr-test.demo.community.intersystems.com/
